@@ -1,26 +1,32 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+<script setup>
+import SplitPane from "./components/SplitPanel.vue";
 </script>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<template>
+  <div class="page">
+    <SplitPane :direction="'column'" :initPaneLengthPercent="60">
+      <template #one>
+        <div class="pane-one">paneOne</div>
+      </template>
+      <template #two>
+        <div class="pane-two">paneTwo</div>
+      </template>
+    </SplitPane>
+  </div>
+</template>
+
+<style scoped lang="less">
+.page {
+  height: 100vh;
+  // background: #000;
+  box-sizing: border-box;
+}
+.pane-one {
+  height: 100%;
+  background-color: palevioletred;
+}
+.pane-two {
+  height: 100%;
+  background-color: turquoise;
 }
 </style>
